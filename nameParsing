@@ -1,0 +1,12 @@
+import re, os
+
+with open('readme.txt', 'x') as f:
+    f.write('Name File')
+
+ip_pattern = re.compile(r'"name":"[a-z]*[a-z]')
+
+with open('readme.txt', 'r') as rf, open('readme.txt', 'a') as wf:
+    content = rf.read()
+    matches = ip_pattern.findall(content)
+    for match in matches:
+        wf.write(match + '\n')
